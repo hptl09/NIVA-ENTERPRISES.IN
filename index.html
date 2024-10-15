@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Niva Enterprises - Premium Office Solutions</title>
+
+    <!-- External Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #111;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* Dynamic Background Animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1c1c1c, #2d2d2d);
+            opacity: 0.9;
+            animation: gradientAnimation 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(17, 17, 17, 0.9);
+            text-align: center;
+            z-index: 1000;
+            transition: background-color 0.5s ease;
+        }
+
+        nav a {
+            color: #f4f4f4;
+            margin: 0 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            display: none; /* Hide the text labels */
+        }
+
+        nav a:hover {
+            color: #c29e30; /* Luxurious gold hover */
+        }
+
+        /* Header Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 1.2s ease-in-out;
+            z-index: 1; /* To ensure it appears above the background */
+        }
+
+        header h1 {
+            font-size: 72px;
+            font-weight: 700;
+            color: #e1e1e1;
+            letter-spacing: 6px;
+        }
+
+        header p {
+            font-size: 24px;
+            color: #aaa;
+            margin-top: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            animation: slideInUp 1.5s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 56px;
+            font-weight: 500;
+            color: #f5f5f5;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* Service Section */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 120px 60px;
+            background-color: #1c1c1c;
+        }
+
+        .service-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin: 20px;
+            flex: 1;
+            max-width: 320px;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-box i {
+            font-size: 40px;
+            color: #c29e30;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 28px;
+            color: #c29e30;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            background-color: #111;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #c29e30;
+        }
+
+        .contact p {
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        /* Floating WhatsApp, Email, and Phone Icons */
+        .floating-icons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-icons a {
+            background-color: #25D366;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-icons a.phone {
+            background-color: #34b7f1;
+        }
+
+        .floating-icons a.email {
+            background-color: #ea4335;
+        }
+
+        .floating-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #101010;
+            padding: 20px 0;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 48px;
+            }
+
+            header p {
+                font-size: 20px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .services {
+                flex-direction: column;
+                align-items: center;
+                padding: 80px 20px;
+            }
+
+            .service-box {
+                max-width: 90%;
+                margin: 10px 0;
+            }
+
+            .contact h2 {
+                font-size: 30px;
+            }
+
+            .contact p {
+                font-size: 18px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+
+            .floating-icons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-icons a {
+                padding: 12px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            header p, .hero p {
+                font-size: 16px;
+            }
+
+            .service-box h3 {
+                font-size: 22px;
+            }
+
+            .service-box p {
+                font-size: 16px;
+            }
+
+            .contact h2 {
+                font-size: 24px;
+            }
+
+            .contact p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dynamic Background -->
+    <div class="background"></div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Niva Enterprises</h1>
+        <p>Transforming Office Spaces with Innovation</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/919594089674" target="_blank">WhatsApp</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Your One-Stop Solution for Office Needs</h2>
+        <p>Furniture, Printers, and Housekeeping Services Tailored for You</p>
+    </div>
+
+    <!-- Service Section -->
+    <section class="services" id="services">
+        <div class="service-box">
+            <i class="fas fa-chair"></i>
+            <h3>Office Furniture</h3>
+            <p>Ergonomic and elegant furniture solutions.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-print"></i>
+            <h3>Printers & Toners</h3>
+            <p>Reliable and high-quality printing solutions.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-broom"></i>
+            <h3>Housekeeping</h3>
+            <p>Comprehensive cleaning and maintenance services.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: niva.ent974@gmail.com | Phone: 9594089674, 8767550165</p>
+    </section>
+
+    <!-- Floating WhatsApp, Email, and Phone Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/919594089674" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:niva.ent974@gmail.com" class="email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+919594089674" class="phone"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Niva Enterprises. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
